@@ -1,0 +1,69 @@
+{
+  "name": "personal_card",
+  "displayName": "个人名片生成器",
+  "version": "1.0.0",
+  "description": "生成精美的个人数字名片，支持添加个人网址、视频号、小红书等可点击跳转的链接",
+  "author": "user",
+  "triggers": [
+    "帮我做一个个人名片",
+    "生成一个名片",
+    "我想做一个带链接的名片",
+    "制作数字名片",
+    "个人名片",
+    "名片生成"
+  ],
+  "inputs": {
+    "name": {
+      "type": "string",
+      "description": "名片上显示的名字",
+      "required": true,
+      "placeholder": "您的名字"
+    },
+    "bio": {
+      "type": "string",
+      "description": "个人简介",
+      "required": false,
+      "placeholder": "个人简介 | 创作者"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "头像图片URL或路径",
+      "required": false,
+      "placeholder": ""
+    },
+    "website_url": {
+      "type": "string",
+      "description": "个人网址",
+      "required": false,
+      "placeholder": "https://yourwebsite.com"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "视频号链接",
+      "required": false,
+      "placeholder": "https://channels.weixin.qq.com/yourchannel"
+    },
+    "xiaohongshu_url": {
+      "type": "string",
+      "description": "小红书主页链接",
+      "required": false,
+      "placeholder": "https://www.xiaohongshu.com/user/profile/yourid"
+    }
+  },
+  "outputs": {
+    "image": {
+      "type": "file",
+      "format": "jpg",
+      "description": "名片图片文件"
+    },
+    "html": {
+      "type": "file",
+      "format": "html",
+      "description": "可交互的网页名片"
+    }
+  },
+  "templates": [
+    "template.html"
+  ],
+  "tags": ["名片", "个人品牌", "社交媒体", "链接", "分享"]
+}
