@@ -1,0 +1,56 @@
+{
+  "name": "feishu_minutes_to_plan",
+  "displayName": "飞书纪要转执行方案",
+  "version": "1.0.0",
+  "description": "将飞书会议纪要（妙记链接或导出的 docx）自动提炼为执行方案 PDF，并通过飞书 CLI 私聊发送给参会人及行动项负责人",
+  "author": "zhaochen202588",
+  "triggers": [
+    "处理会议纪要",
+    "把纪要转成方案",
+    "飞书纪要转方案",
+    "会议纪要执行方案",
+    "生成会议行动项",
+    "纪要转PDF"
+  ],
+  "inputs": {
+    "source": {
+      "type": "string",
+      "description": "会议纪要来源（妙记链接或 docx 文件路径）",
+      "required": true,
+      "placeholder": "https://meetings.feishu.cn/minutes/xxx 或 /path/to/meeting.docx"
+    },
+    "source_type": {
+      "type": "select",
+      "description": "来源类型",
+      "required": true,
+      "options": [
+        {"label": "妙记链接", "value": "url"},
+        {"label": "docx 文件", "value": "docx"}
+      ]
+    },
+    "api_token": {
+      "type": "string",
+      "description": "飞书 API Token（用于获取妙记内容，可选）",
+      "required": false,
+      "placeholder": "Bearer xxxxx"
+    }
+  },
+  "outputs": {
+    "pdf": {
+      "type": "file",
+      "format": "pdf",
+      "description": "执行方案 PDF 文件"
+    },
+    "sent_count": {
+      "type": "number",
+      "description": "成功发送人数"
+    }
+  },
+  "templates": [],
+  "tags": ["飞书", "会议纪要", "执行方案", "PDF", "自动化"],
+  "settings": {
+    "feishu_cli_required": true,
+    "output_dir": "/tmp",
+    "send_message": "请查收本次会议的执行方案"
+  }
+}
